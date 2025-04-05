@@ -20,6 +20,17 @@
     wireplumber.enable = true;
   };
 
+  systemd.services.myCommand = {
+    description = "Run amnezia vpn service";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = ''
+        AmneziaVPN-service
+      '';
+    };
+  };
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot = {
@@ -50,20 +61,9 @@
   hardware.sensor.iio.enable = true;
 
   imports = [
-    "${unstable}/nixos/modules/programs/amnezia-vpn.nix"
     ./hardware-configuration.nix
     (import ./stylix.nix { inherit config pkgs unstable; })
   ];
-
-  programs.amnezia-vpn = {
-    enable = true;
-    package = pkgs.amnezia-vpn; # Используем переопределенный пакет
-  };
-
-  # Фикс для Home Manager
-  home-manager.users.nikkotanns = {
-    home.enableNixpkgsReleaseCheck = false;
-  };
 
   users.users.nikkotanns.shell = pkgs.zsh;
   programs.zsh = {

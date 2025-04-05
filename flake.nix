@@ -40,13 +40,6 @@
         inherit system;
         specialArgs = args;
         modules = [
-          ({ config, pkgs, unstable, ... }: {
-            nixpkgs.overlays = [
-              (final: prev: {
-                amnezia-vpn = unstable.legacyPackages.${prev.system}.amnezia-vpn;
-              })
-            ];
-          })
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {

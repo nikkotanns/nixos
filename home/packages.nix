@@ -92,6 +92,9 @@
     # Proxy
     unstable.xray
     unstable.amnezia-vpn
+    unstable.amneziawg-go
+    unstable.amneziawg-tools
+
 
     # BitTorrent client
     transmission_4-qt
