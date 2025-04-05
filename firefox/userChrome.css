@@ -1,0 +1,17 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#statuspanel[type="overLink"] {
+  opacity: 0 !important;
+}
+
+#statuspanel {
+  opacity: 0 !important;
+}
+
+#navigator-toolbox[fullscreenShouldAnimate] {
+  transition: 100ms !important;
+}
+
+html {
+  scrollbar-width: none;
+}
