@@ -33,15 +33,18 @@
         config.allowUnfree = true;
       };
       unstable = import nixos-unstable { inherit system; config.allowUnfree = true; config.allowBroken = true; };
-      args = { inherit inputs; inherit pkgs; inherit unstable; };
+      args = { inherit inputs; inherit pkgs; inherit unstable; lib = unstable.lib; };
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = args;
         modules = [
+          ({ config, pkgs, unstable, ... }: {
+            environment.systemPackages = [ unstable.amnezia-vpn ];
+            services.dbus.packages = [ unstable.amnezia-vpn ];
+          })
           ./configuration.nix
-
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

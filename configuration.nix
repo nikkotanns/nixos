@@ -2,16 +2,6 @@
 {
 
 
-  programs.amnezia-vpn = {
-    enable = true;
-    package = unstable.amnezia-vpn;
-  };
-
-
-  environment.systemPackages = with pkgs; [
-    unstable.amnezia-vpn
-  ];
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.displayManager.ly = {
@@ -60,9 +50,21 @@
   hardware.sensor.iio.enable = true;
 
   imports = [
+    "${unstable.path}/nixos/modules/programs/amnezia-vpn.nix"
     ./hardware-configuration.nix
-    (import ./stylix.nix args)
-    "${unstable}/nixos/modules/services/networking/amnezia-vpn.nix"
+    (import ./stylix.nix { inherit config pkgs unstable; })
+  ];
+
+
+  environment.systemPackages = [ unstable.amnezia-vpn ];
+  services.dbus.packages = [ unstable.amnezia-vpn ];
+
+  programs.amnezia-vpn.enable = true;
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      amnezia-vpn = unstable.amnezia-vpn;
+    })
   ];
 
   users.users.nikkotanns.shell = pkgs.zsh;
