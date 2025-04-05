@@ -41,8 +41,11 @@
         specialArgs = args;
         modules = [
           ({ config, pkgs, unstable, ... }: {
-            environment.systemPackages = [ unstable.amnezia-vpn ];
-            services.dbus.packages = [ unstable.amnezia-vpn ];
+            nixpkgs.overlays = [
+              (final: prev: {
+                amnezia-vpn = unstable.legacyPackages.${prev.system}.amnezia-vpn;
+              })
+            ];
           })
           ./configuration.nix
           home-manager.nixosModules.home-manager

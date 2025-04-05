@@ -50,22 +50,20 @@
   hardware.sensor.iio.enable = true;
 
   imports = [
-    "${unstable.path}/nixos/modules/programs/amnezia-vpn.nix"
+    "${unstable}/nixos/modules/programs/amnezia-vpn.nix"
     ./hardware-configuration.nix
     (import ./stylix.nix { inherit config pkgs unstable; })
   ];
 
+  programs.amnezia-vpn = {
+    enable = true;
+    package = pkgs.amnezia-vpn; # Используем переопределенный пакет
+  };
 
-  environment.systemPackages = [ unstable.amnezia-vpn ];
-  services.dbus.packages = [ unstable.amnezia-vpn ];
-
-  programs.amnezia-vpn.enable = true;
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      amnezia-vpn = unstable.amnezia-vpn;
-    })
-  ];
+  # Фикс для Home Manager
+  home-manager.users.nikkotanns = {
+    home.enableNixpkgsReleaseCheck = false;
+  };
 
   users.users.nikkotanns.shell = pkgs.zsh;
   programs.zsh = {
