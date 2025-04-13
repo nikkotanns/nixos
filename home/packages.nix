@@ -1,6 +1,5 @@
 { pkgs, unstable, inputs, ... }: {
   home.packages = with pkgs; [
-    glib
 
     # Desktop
     libnotify
@@ -10,13 +9,12 @@
     blueman
     networkmanagerapplet
     capitaine-cursors
-    # pipewire
-    # wireplumber
     hyprpolkitagent
     brightnessctl
     hyprshot
     wl-clipboard
 
+    neofetch
 
     coreutils
     busybox
@@ -57,6 +55,14 @@
     # Lean 4
     unstable.elan
 
+    # Typst
+    unstable.typst
+    unstable.typstyle
+    unstable.typstfmt
+    unstable.typst-live
+    unstable.typstwriter
+    unstable.tinymist
+
     # Koka
     koka
 
@@ -95,16 +101,17 @@
     unstable.amneziawg-go
     unstable.amneziawg-tools
 
-
     # BitTorrent client
     transmission_4-qt
 
     # Camera app
     cheese
 
-
     # Video player
     vlc
+
+    # PDF Editor
+    libsForQt5.okular
 
     # Doom
     chocolate-doom
@@ -115,5 +122,6 @@
     udev
     pkg-config
     xorg.libX11
+    glib
   ];
 }
