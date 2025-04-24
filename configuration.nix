@@ -20,16 +20,6 @@
     wireplumber.enable = true;
   };
 
-  systemd.services.myservice = {
-    description = "Run AmneziaVPN-Serivce";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "/etc/profiles/per-user/nikkotanns/bin/AmneziaVPN-service";
-      Environment = "PATH=/etc/profiles/per-user/nikkotanns/bin/:/home/nikkotanns/.nix-profile/bin:/run/current-system/sw/bin:/usr/local/bin";
-    };
-  };
-
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -83,8 +73,8 @@
   };
 
   hardware.trackpoint = {
-    sensitivity = 80;
-    speed = 120;
+    sensitivity = 100;
+    speed = 60;
   };
 
   environment.sessionVariables = {

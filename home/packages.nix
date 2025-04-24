@@ -63,6 +63,9 @@
     unstable.typstwriter
     unstable.tinymist
 
+    # Obsidian
+    unstable.obsidian
+
     # Koka
     koka
 
@@ -87,6 +90,7 @@
 
     # Javascript
     unstable.bun
+    nodejs_23
 
     # Golang
     go
@@ -97,9 +101,12 @@
 
     # Proxy
     unstable.xray
-    unstable.amnezia-vpn
+    # unstable.amnezia-vpn
     unstable.amneziawg-go
     unstable.amneziawg-tools
+
+    # Telegram client
+    unstable.ayugram-desktop
 
     # BitTorrent client
     transmission_4-qt
@@ -112,6 +119,9 @@
 
     # PDF Editor
     libsForQt5.okular
+
+    # Wine
+    wineWowPackages.waylandFull
 
     # Doom
     chocolate-doom
