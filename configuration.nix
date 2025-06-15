@@ -47,6 +47,8 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
+  programs.amnezia-vpn.enable = true;
+
   programs.iio-hyprland.enable = true;
   hardware.sensor.iio.enable = true;
 
@@ -90,12 +92,8 @@
   # Fonts
   fonts = {
     enableDefaultPackages = true;
-    packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-        ];
-      })
+    packages = [
+      pkgs.nerd-fonts.jetbrains-mono
     ];
   };
 
@@ -160,5 +158,5 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }

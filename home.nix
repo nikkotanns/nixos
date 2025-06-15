@@ -8,6 +8,7 @@
     helix.enable = false;
     gtk.enable = false;
     mako.enable = false;
+    qt.enable = false;
   };
 
   stylix.polarity = "dark";

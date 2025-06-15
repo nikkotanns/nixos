@@ -3,12 +3,12 @@
 
   inputs = {
     ###    NIXPKGS     ###
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixos-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     ###  HOME MANAGER  ###
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,7 +22,7 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
 
     ###     STYLIX     ###
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix/release-25.05";
   };
 
   outputs = inputs @ { nixpkgs, nixos-unstable, home-manager, ... }:
@@ -32,7 +32,18 @@
         inherit system;
         config.allowUnfree = true;
       };
-      unstable = import nixos-unstable { inherit system; config.allowUnfree = true; config.allowBroken = true; };
+      unstable = import nixos-unstable {
+        inherit system;
+        config.allowUnfree = true;
+        config.allowBroken = true;
+        overlays = [
+          (final: prev: {
+            haskell-language-server = prev.haskell-language-server.override {
+              supportedGhcVersions = [ "9101" ];
+            };
+          })
+        ];
+      };
       args = { inherit inputs; inherit pkgs; inherit unstable; lib = unstable.lib; };
     in
     {

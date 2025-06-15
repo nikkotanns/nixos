@@ -32,6 +32,7 @@
     gh
 
     unstable.vscode
+    unstable.code-cursor
 
     clang
 
@@ -90,7 +91,6 @@
 
     # Javascript
     unstable.bun
-    nodejs_23
 
     # Golang
     go
@@ -101,7 +101,7 @@
 
     # Proxy
     unstable.xray
-    # unstable.amnezia-vpn
+    unstable.amnezia-vpn
     unstable.amneziawg-go
     unstable.amneziawg-tools
 
@@ -119,6 +119,12 @@
 
     # PDF Editor
     libsForQt5.okular
+
+    # Notebook
+    rnote
+
+    # Postgres
+    postgresql
 
     # Wine
     wineWowPackages.waylandFull
