@@ -119,6 +119,11 @@
   };
 
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -151,7 +156,7 @@
   users.users.nikkotanns = {
     isNormalUser = true;
     description = "nikkotanns";
-    extraGroups = [ "networkmanager" "wheel" "docker" "video" "render" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video" "render" "libvirtd" ];
     packages = [ ];
   };
 

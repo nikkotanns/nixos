@@ -18,5 +18,4 @@
     sansSerif = config.stylix.fonts.monospace;
     emoji = config.stylix.fonts.monospace;
   };
-
 }

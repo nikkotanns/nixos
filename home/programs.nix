@@ -16,6 +16,9 @@
       };
       shellIntegration.enableZshIntegration = true;
     };
+    uv = {
+      enable = true;
+    };
     nushell = {
       enable = true;
       environmentVariables = {
