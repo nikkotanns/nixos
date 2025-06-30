@@ -51,7 +51,7 @@
     zlib
 
     # Agda
-    (agda.withPackages [ agdaPackages.standard-library ])
+    (agda.withPackages [ agdaPackages.standard-library agdaPackages.cubical ])
 
     # Lean 4
     unstable.elan
