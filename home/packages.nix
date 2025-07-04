@@ -32,7 +32,7 @@
     gh
 
     unstable.vscode
-    unstable.code-cursor
+    # unstable.code-cursor
 
     clang
 
