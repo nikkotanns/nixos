@@ -1,7 +1,17 @@
 { config, unstable, pkgs, lib, ... } @ args:
 {
-
-
+  nix.settings.trusted-public-keys = [
+    "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+  ];
+  nix.settings.substituters = [
+    "https://cache.iog.io"
+  ];
+  nix.settings.extra-trusted-public-keys = [
+    "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+  ];
+  nix.settings.extra-substituters = [
+    "https://cache.iog.io"
+  ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.displayManager.ly = {
@@ -47,7 +57,10 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
-  programs.amnezia-vpn.enable = true;
+  programs.amnezia-vpn = {
+    enable = true;
+    package = pkgs.amnezia-vpn;
+  };
 
   programs.iio-hyprland.enable = true;
   hardware.sensor.iio.enable = true;

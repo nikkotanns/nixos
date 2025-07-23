@@ -32,7 +32,7 @@
     gh
 
     unstable.vscode
-    # unstable.code-cursor
+    unstable.code-cursor
 
     clang
 
@@ -43,7 +43,7 @@
     unstable.rust-analyzer
 
     # Haskell
-    ghc
+    haskell.compiler.ghc912
     cabal-install
     haskellPackages.cabal-fmt
     haskell-language-server
@@ -101,9 +101,9 @@
 
     # Proxy
     unstable.xray
-    unstable.amnezia-vpn
-    unstable.amneziawg-go
-    unstable.amneziawg-tools
+    amnezia-vpn
+    amneziawg-go
+    amneziawg-tools
 
     # Telegram client
     unstable.ayugram-desktop
