@@ -2,13 +2,15 @@
 
   services.mako = {
     enable = true;
-    font = "JetBrains Mono 14";
-    borderColor = "#22DDCCEE";
-    backgroundColor = "#000000FF";
-    borderSize = 2;
-    borderRadius = 6;
-    defaultTimeout = 6000;
-    padding = "10";
+    settings = {
+      font = "JetBrains Mono 14";
+      border-color = "#22DDCCEE";
+      background-color = "#000000FF"; 
+      border-size = 2;
+      border-radius = 6;
+      default-timeout = 6000;
+      padding = "10";
+    };
   };
 
 
