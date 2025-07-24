@@ -22,20 +22,21 @@
   outputs = inputs @ { nixpkgs, nixos-unstable, home-manager, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+      pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+      unstable = import nixos-unstable { inherit system; config.allowUnfree = true; };
+      args = {
+        inherit inputs;
+        inherit pkgs;
+        inherit unstable;
+        lib = unstable.lib;
       };
-      unstable = import nixos-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      args = { inherit inputs; inherit pkgs; inherit unstable; lib = unstable.lib; };
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+
         inherit system;
         specialArgs = args;
+
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
@@ -46,6 +47,7 @@
           }
           inputs.stylix.nixosModules.stylix
         ];
+
       };
     };
 }
