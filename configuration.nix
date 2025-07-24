@@ -2,17 +2,18 @@
 {
   nix.settings.trusted-public-keys = [
     "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+    "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
   ];
   nix.settings.substituters = [
     "https://cache.iog.io"
+    "https://cache.nixos.org/"
   ];
-  nix.settings.extra-trusted-public-keys = [
-    "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
-  ];
-  nix.settings.extra-substituters = [
-    "https://cache.iog.io"
-  ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.extraOptions = ''
+      trusted-users = root nikkotanns
+    '';
 
   services.displayManager.ly = {
     enable = true;

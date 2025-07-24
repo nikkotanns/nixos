@@ -12,12 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ### FIREFOX ADDONS ###
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ###    NIX ALIEN   ###
     nix-alien.url = "github:thiagokokada/nix-alien";
 
@@ -35,14 +29,6 @@
       unstable = import nixos-unstable {
         inherit system;
         config.allowUnfree = true;
-        config.allowBroken = true;
-        overlays = [
-          (final: prev: {
-            haskell-language-server = prev.haskell-language-server.override {
-              supportedGhcVersions = [ "9101" ];
-            };
-          })
-        ];
       };
       args = { inherit inputs; inherit pkgs; inherit unstable; lib = unstable.lib; };
     in
@@ -58,7 +44,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.nikkotanns = import ./home.nix args;
           }
-
           inputs.stylix.nixosModules.stylix
         ];
       };

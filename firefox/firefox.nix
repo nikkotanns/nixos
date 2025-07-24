@@ -93,9 +93,6 @@
           "newElementCount" = 5;
         };
       };
-      extensions = [
-        inputs.firefox-addons.packages.${pkgs.system}.bitwarden
-      ];
       userChrome = builtins.readFile ./userChrome.css;
     };
   };

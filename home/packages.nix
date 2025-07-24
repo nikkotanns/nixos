@@ -43,12 +43,12 @@
     unstable.rust-analyzer
 
     # Haskell
-    haskell.compiler.ghc912
-    cabal-install
-    haskellPackages.cabal-fmt
-    haskell-language-server
-    ormolu
-    zlib
+    # haskell.compiler.ghc912
+    # cabal-install
+    # haskellPackages.cabal-fmt
+    # haskell-language-server
+    # ormolu
+    # zlib
 
     # Agda
     (agda.withPackages [ agdaPackages.standard-library agdaPackages.cubical ])
