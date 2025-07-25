@@ -1,11 +1,5 @@
 { pkgs, ... }: {
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = null;
-    portalPackage = null;
-  };
-
   stylix.targets = {
     rofi.enable = false;
     helix.enable = false;
