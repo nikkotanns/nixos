@@ -16,7 +16,7 @@
 
   imports = [
     (import ./firefox/firefox.nix args)
-    ./helix/helix.nix
+    # ./home/helix/helix.nix
 
     (import ./home/packages.nix args)
     (import ./home/programs.nix args)

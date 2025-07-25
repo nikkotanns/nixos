@@ -11,8 +11,8 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "~/.config/nixos/rofi/colors.rasi"
-@import                          "~/.config/nixos/rofi/fonts.rasi"
+@import                          "~/.config/nixos/home/themes/rofi/colors.rasi"
+@import                          "~/.config/nixos/home/themes/rofi/fonts.rasi"
 
 
 * {
