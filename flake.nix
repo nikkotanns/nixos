@@ -28,7 +28,7 @@
         inherit inputs;
         inherit pkgs;
         inherit unstable;
-        lib = unstable.lib;
+        lib = pkgs.lib;
       };
     in
     {

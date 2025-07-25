@@ -9,6 +9,7 @@
     gtk.enable = false;
     mako.enable = false;
     qt.enable = false;
+    firefox.profileNames = [ "nikkotanns" ];
   };
 
   stylix.polarity = "dark";
