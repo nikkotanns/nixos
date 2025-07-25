@@ -9,9 +9,6 @@
     firefox.profileNames = [ "nikkotanns" ];
   };
 
-  stylix.polarity = "dark";
-
-
   services.mako = {
     enable = true;
     settings = {
