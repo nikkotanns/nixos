@@ -270,6 +270,93 @@
         userChrome = builtins.readFile ./themes/firefox/userChrome.css;
       };
     };
+    waybar = {
+      enable = true;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          height = 24;
+          "modules-left" = [ "hyprland/workspaces" "custom/spotify" ];
+          "modules-center" = [ ];
+          "modules-right" = [
+            "pulseaudio"
+            "network"
+            "cpu"
+            "memory"
+            "battery"
+            "tray"
+            "clock"
+          ];
+
+          "hyprland/workspaces" = {
+            "disable-scroll" = true;
+            "all-outputs" = false;
+            format = "{name}";
+            "format-icons" = {
+              "1:web" = "";
+              "2:code" = "";
+              "3:term" = "";
+              "4:work" = "";
+              "5:music" = "";
+              "6:docs" = "";
+              urgent = "";
+              focused = "";
+              default = "";
+            };
+          };
+
+          tray = {
+            spacing = 10;
+          };
+
+          clock = {
+            "format-alt" = "{:%Y-%m-%d}";
+          };
+
+          cpu = {
+            format = "{usage}% ";
+          };
+
+          memory = {
+            format = "{}% ";
+          };
+
+          battery = {
+            bat = "BAT0";
+            states = {
+              warning = 30;
+              critical = 10;
+            };
+            format = "{capacity}% {icon}";
+            "format-icons" = [ "" "" "" "" "" ];
+          };
+
+          network = {
+            "format-wifi" = "{essid} ({signalStrength}%) ";
+            "format-ethernet" = "{ifname}: {ipaddr}/{cidr} ";
+            "format-disconnected" = "Disconnected ⚠";
+          };
+
+          pulseaudio = {
+            format = "{volume}% {icon}";
+            "format-bluetooth" = "{volume}% 󰂯";
+            "format-muted" = "";
+            "format-icons" = {
+              headphones = "";
+              handsfree = "";
+              headset = "";
+              phone = "";
+              portable = "";
+              car = "";
+              default = [ "" "" ];
+            };
+            "on-click" = "pavucontrol";
+          };
+        };
+      };
+      style = (builtins.readFile ./themes/waybar/style.css);
+    };
     home-manager.enable = true;
   };
 }

@@ -3,7 +3,7 @@
 
     # Desktop
     libnotify
-    waybar
+    # waybar
     wpaperd
     rofi
     blueman
