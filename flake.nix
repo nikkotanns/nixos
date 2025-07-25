@@ -24,18 +24,12 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
       unstable = import nixos-unstable { inherit system; config.allowUnfree = true; };
-      args = {
-        inherit inputs;
-        inherit pkgs;
-        inherit unstable;
-        lib = pkgs.lib;
-      };
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 
         inherit system;
-        specialArgs = args;
+        specialArgs = { inherit inputs; inherit unstable; };
 
         modules = [
           ./configuration.nix
