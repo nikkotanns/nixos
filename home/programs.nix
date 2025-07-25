@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs = {
     git = {
       enable = true;
@@ -269,6 +269,10 @@
         };
         userChrome = builtins.readFile ./themes/firefox/userChrome.css;
       };
+    };
+    chromium = {
+      enable = true;
+      package = pkgs.brave;
     };
     waybar = {
       enable = true;
