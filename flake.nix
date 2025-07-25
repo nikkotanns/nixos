@@ -43,7 +43,8 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nikkotanns = import ./home.nix args;
+            home-manager.extraSpecialArgs = { inherit inputs unstable; };
+            home-manager.users.nikkotanns = import ./home.nix;
           }
           inputs.stylix.nixosModules.stylix
         ];
