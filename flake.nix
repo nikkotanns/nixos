@@ -29,7 +29,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 
         inherit system;
-        specialArgs = { inherit inputs; inherit unstable; };
+        specialArgs = { inherit inputs unstable; };
 
         modules = [
           ./configuration.nix
