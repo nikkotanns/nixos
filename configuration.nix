@@ -1,6 +1,14 @@
 { config, unstable, pkgs, lib, ... } @ args:
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-public-keys = [
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+    ];
+    substituters = [
+      "https://cache.iog.io"
+    ];
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
