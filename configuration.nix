@@ -8,6 +8,10 @@
     substituters = [
       "https://cache.iog.io"
     ];
+    trusted-substituters = [
+      "https://cache.iog.io"
+    ];
+    trusted-users = [ "root" "nikkotanns" ];
   };
 
   boot = {
