@@ -69,6 +69,10 @@
     # Koka
     koka
 
+    # Erlang and Elixir
+    erlang_28
+    unstable.beam28Packages.elixir
+
     triton-llvm
 
     # Futhark 
