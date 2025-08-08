@@ -27,6 +27,7 @@
     tokei
     ripgrep
     eza
+    erdtree
 
     gh
 
