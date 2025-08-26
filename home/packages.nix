@@ -135,7 +135,6 @@
 
     # Games
     chocolate-doom
-    prismlauncher
 
     # Libs
     alsa-lib

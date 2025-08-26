@@ -5,14 +5,6 @@
       userName = "nikkotanns";
       userEmail = "nikkotanns@gmail.com";
     };
-    vscode = {
-      enable = true;
-      package = unstable.vscode;
-      extensions = with unstable.vscode-extensions; [
-        vadimcn.vscode-lldb
-        rust-lang.rust-analyzer
-      ];
-    };
     kitty = {
       enable = true;
       settings = {

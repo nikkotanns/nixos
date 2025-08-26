@@ -4,9 +4,13 @@
     experimental-features = [ "nix-command" "flakes" ];
     trusted-public-keys = [
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+      "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
+
     ];
     substituters = [
       "https://cache.iog.io"
+      "https://prismlauncher.cachix.org"
+
     ];
     trusted-substituters = [
       "https://cache.iog.io"
