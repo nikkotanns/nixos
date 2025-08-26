@@ -6,7 +6,7 @@ appimageTools.wrapType2 rec {
 
   src = fetchurl {
     url = "https://github.com/Diegiwg/PrismLauncher-Cracked/releases/download/${version}/PrismLauncher-Linux-x86_64.AppImage";
-    sha256 = lib.fakeHash; # собери один раз, замени на реальный хеш
+    sha256 = "sha256-+nOp3tKjJpNQgaFtSbK7OW7wH1XjPsBFzFjKWGquwqU=";
   };
 
   meta = with lib; {
