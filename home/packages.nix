@@ -135,6 +135,9 @@
 
     # Games
     chocolate-doom
+    inputs.self.packages.x86_64-linux.prismlauncher-appimage
+
+    appimage-run
 
     # Libs
     alsa-lib

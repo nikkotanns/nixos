@@ -17,19 +17,17 @@
 
     ###     STYLIX     ###
     stylix.url = "github:danth/stylix/release-25.05";
-
-    ### Prism Launcher ###
-    prismc.url = "github:Diegiwg/PrismLauncher-Cracked";
-    prismc.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { nixpkgs, nixos-unstable, home-manager, prismc, ... }:
+  outputs = inputs @ { nixpkgs, nixos-unstable, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
       unstable = import nixos-unstable { inherit system; config.allowUnfree = true; };
     in
     {
+      packages.${system}.prismlauncher-appimage =
+        pkgs.callPackage ./pkgs/prismlauncher-appimage.nix { };
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 
         inherit system;
@@ -45,18 +43,6 @@
             home-manager.users.nikkotanns = import ./home.nix;
           }
           inputs.stylix.nixosModules.stylix
-          ({ ... }: {
-            nix.settings.substituters = [
-              "https://cache.nixos.org"
-              "https://prismlauncher.cachix.org"
-            ];
-            nix.settings.trusted-public-keys = [
-              "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
-            ];
-            environment.systemPackages = [
-              prismc.packages.x86_64-linux.default
-            ];
-          })
         ];
       };
     };
