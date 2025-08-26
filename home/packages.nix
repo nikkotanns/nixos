@@ -133,9 +133,9 @@
     # Wine
     wineWowPackages.waylandFull
 
-    # Doom
+    # Games
     chocolate-doom
-
+    prismlauncher
 
     # Libs
     alsa-lib
