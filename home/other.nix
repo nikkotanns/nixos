@@ -45,4 +45,13 @@
     platformTheme.name = "gtk";
     style.name = "Blackout";
   };
+
+  xdg.enable = true;
+  xdg.desktopEntries.prismlauncher = {
+    name = "Prism Launcher";
+    exec = "prismlauncher-cracked";
+    terminal = false;
+    type = "Application";
+    categories = [ "Game" ];
+  };
 }

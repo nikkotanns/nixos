@@ -42,19 +42,15 @@
     unstable.rustfmt
     unstable.rust-analyzer
 
-    # Haskell
-    # haskell.compiler.ghc912
-    # cabal-install
-    # haskellPackages.cabal-fmt
-    # haskell-language-server
-    # ormolu
-    # zlib
-
     # Agda
     (agda.withPackages [ agdaPackages.standard-library agdaPackages.cubical ])
 
     # Lean 4
     unstable.elan
+
+    # F*
+    fstar
+    z3
 
     # Typst
     unstable.typst
@@ -92,6 +88,9 @@
 
     # Python
     python313
+
+    # OpenJDK
+    jdk24
 
     # Javascript
     unstable.bun
