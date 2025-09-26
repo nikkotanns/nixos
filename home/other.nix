@@ -21,6 +21,15 @@
       padding = "10";
     };
   };
+  services.wpaperd = {
+    enable = true;
+    settings = {
+      default = {
+        path = "~/wallpapers/";
+        duration = "60s";
+      };
+    };
+  };
 
   gtk = {
     enable = true;

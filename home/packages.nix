@@ -3,7 +3,6 @@
 
     # Desktop
     libnotify
-    wpaperd
     rofi
     blueman
     networkmanagerapplet
