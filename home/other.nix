@@ -26,7 +26,8 @@
     settings = {
       default = {
         path = "~/wallpapers/";
-        duration = "60s";
+        queue-size = 100;
+        initial-transition = false;
       };
     };
   };

@@ -4,6 +4,11 @@
       enable = true;
       userName = "nikkotanns";
       userEmail = "nikkotanns@gmail.com";
+      extraConfig = {
+        init = {
+          defaultBranch = "master";
+        };
+      };
     };
     kitty = {
       enable = true;
@@ -170,6 +175,9 @@
         map j feedkeys "<C-Down>"
         map k feedkeys "<C-Up>"
       '';
+    };
+    onlyoffice = {
+      enable = true;
     };
     # Image viewer
     feh.enable = true;
