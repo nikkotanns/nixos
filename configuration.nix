@@ -52,6 +52,13 @@
       enable = true;
     };
     virt-manager.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc
+        gcc-unwrapped
+      ];
+    };
   };
 
   services = {
