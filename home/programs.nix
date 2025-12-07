@@ -274,6 +274,9 @@
             "currentVersion" = 20;
             "newElementCount" = 5;
           };
+
+          # Disable "comment, highlight" popup in PDF viewer
+          "pdfjs.enableHighlightFloatingButton" = false;
         };
         userChrome = builtins.readFile ./themes/firefox/userChrome.css;
       };

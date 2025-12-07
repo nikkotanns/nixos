@@ -54,7 +54,7 @@
     # Typst
     unstable.typst
     unstable.typstyle
-    unstable.typstfmt
+    unstable.typstyle
     unstable.typst-live
     unstable.typstwriter
     unstable.tinymist
