@@ -32,7 +32,7 @@
 
     unstable.vscode
     unstable.code-cursor
-    # unstable.antigravity
+    unstable.antigravity
 
     clang
 
