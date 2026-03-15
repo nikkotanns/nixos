@@ -48,6 +48,9 @@
     # Lean 4
     unstable.elan
 
+    # GAP – A System for Computational Discrete Algebra
+    gap
+
     # F*
     fstar
     z3

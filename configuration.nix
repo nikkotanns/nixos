@@ -132,6 +132,7 @@
     };
     docker = {
       enable = true;
+      package = unstable.docker;
       storageDriver = "btrfs";
     };
     libvirtd.enable = true;
