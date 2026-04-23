@@ -62,6 +62,10 @@
   };
 
   services = {
+    v2raya = {
+      enable = true;
+      # systemd.services.v2raya.wantedBy = [ "multi-user.target" ];
+    };
     gvfs.enable = true;
     tumbler.enable = true;
     displayManager.ly = {
