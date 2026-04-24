@@ -2,9 +2,9 @@
   programs = {
     git = {
       enable = true;
-      userName = "nikkotanns";
-      userEmail = "nikkotanns@gmail.com";
-      extraConfig = {
+      user.name = "nikkotanns";
+      user.email = "nikkotanns@gmail.com";
+      settings = {
         init = {
           defaultBranch = "master";
         };
@@ -117,12 +117,14 @@
     };
     aider-chat = {
       enable = true;
-      message-file = "~/.config/nixos/config/.aider.custom-rules.md";
-      chat-language = "russian";
-      auto-commits = true;
-      dark-mode = true;
-      cache-prompts = true;
-      gitignore = true;
+      settings = {
+        message-file = "~/.config/nixos/config/.aider.custom-rules.md";
+        chat-language = "russian";
+        auto-commits = true;
+        dark-mode = true;
+        cache-prompts = true;
+        gitignore = true;
+      };
     };
     zsh = {
       enable = true;
@@ -154,10 +156,10 @@
       enableZshIntegration = true;
     };
     bat.enable = true;
-    zellij = {
-      enable = true;
-      # enableZshIntegration = true;
-    };
+    # zellij = {
+    #   enable = true;
+    #   # enableZshIntegration = true;
+    # };
     direnv = {
       enable = true;
       enableNushellIntegration = true;

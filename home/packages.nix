@@ -82,7 +82,6 @@
     # OpenCL
     clinfo
     khronos-ocl-icd-loader
-    oclgrind
 
     # Nix language
     nil
@@ -91,9 +90,6 @@
 
     # Python
     python313
-
-    # OpenJDK
-    jdk24
 
     # Javascript
     unstable.bun
@@ -122,9 +118,6 @@
 
     # Video player
     vlc
-
-    # PDF Editor
-    libsForQt5.okular
 
     # Notebook
     rnote

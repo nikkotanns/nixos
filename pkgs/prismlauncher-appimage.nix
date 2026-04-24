@@ -2,11 +2,11 @@
 { lib, fetchurl, appimageTools }:
 appimageTools.wrapType2 rec {
   pname = "prismlauncher-cracked";
-  version = "9.4";
+  version = "11.0.2-1";
 
   src = fetchurl {
     url = "https://github.com/Diegiwg/PrismLauncher-Cracked/releases/download/${version}/PrismLauncher-Linux-x86_64.AppImage";
-    sha256 = "sha256-+nOp3tKjJpNQgaFtSbK7OW7wH1XjPsBFzFjKWGquwqU=";
+    sha256 = "sha256-P+6s4g8uCqXQx0p5rieJFpuDV7AquGVYrcTs9XWFAsA=";
   };
 
   meta = with lib; {
