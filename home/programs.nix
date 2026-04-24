@@ -2,8 +2,8 @@
   programs = {
     git = {
       enable = true;
-      user.name = "nikkotanns";
-      user.email = "nikkotanns@gmail.com";
+      userName = "nikkotanns";
+      userEmail = "nikkotanns@gmail.com";
       settings = {
         init = {
           defaultBranch = "master";
@@ -118,7 +118,7 @@
     aider-chat = {
       enable = true;
       settings = {
-        message-file = "~/.config/nixos/config/.aider.custom-rules.md";
+        message-file = "/home/nikkotanns/.config/nixos/config/.aider.custom-rules.md";
         chat-language = "russian";
         auto-commits = true;
         dark-mode = true;
