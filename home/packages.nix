@@ -114,9 +114,6 @@
     # Telegram client
     unstable.ayugram-desktop
 
-    # Crypto wallet
-    exodus
-    
     # BitTorrent client
     transmission_4-qt
 

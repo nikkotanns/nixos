@@ -115,6 +115,15 @@
         };
       };
     };
+    aider-chat = {
+      enable = true;
+      message-file = "~/.config/nixos/config/.aider.custom-rules.md";
+      chat-language = "russian";
+      auto-commits = true;
+      dark-mode = true;
+      cache-prompts = true;
+      gitignore = true;
+    };
     zsh = {
       enable = true;
       enableCompletion = true;
