@@ -2,12 +2,12 @@
   programs = {
     git = {
       enable = true;
-      userName = "nikkotanns";
-      userEmail = "nikkotanns@gmail.com";
       settings = {
         init = {
           defaultBranch = "master";
         };
+        user.name = "nikkotanns";
+        user.email = "nikkotanns@gmail.com";
       };
     };
     kitty = {
@@ -118,9 +118,8 @@
     aider-chat = {
       enable = true;
       settings = {
-        message-file = "/home/nikkotanns/.config/nixos/config/.aider.custom-rules.md";
         chat-language = "russian";
-        auto-commits = true;
+        auto-commits = false;
         dark-mode = true;
         cache-prompts = true;
         gitignore = true;

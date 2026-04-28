@@ -48,6 +48,7 @@
         rebuild-nixos = "sudo nixos-rebuild switch --flake ~/.config/nixos";
         rebuild-nixos-upgrade = "sudo nixos-rebuild switch --flake ~/.config/nixos --upgrade";
         nixos-config = "code ~/.config/nixos/";
+        dv = ''export DIRENV_LOG_FORMAT=""; direnv exec .'';
       };
       enable = true;
     };
@@ -119,7 +120,10 @@
       sensitivity = 100;
       speed = 60;
     };
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+      };
     graphics = {
       enable = true;
       extraPackages = with pkgs; [

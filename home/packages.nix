@@ -86,7 +86,7 @@
     # Nix language
     nil
     nixpkgs-fmt
-    inputs.nix-alien.packages.${system}.nix-alien # Nix alien
+    inputs.nix-alien.packages.${stdenv.hostPlatform.system}.nix-alien # Nix alien
 
     # Python
     python313
