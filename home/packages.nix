@@ -97,10 +97,6 @@
     # Golang
     go
 
-    # Kubernetes
-    kubectl
-    unstable.kind
-
     # Proxy
     unstable.xray
     amnezia-vpn
