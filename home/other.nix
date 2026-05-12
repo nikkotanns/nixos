@@ -31,7 +31,7 @@
       };
     };
   };
-
+  
   gtk = {
     enable = true;
     cursorTheme = {
