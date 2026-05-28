@@ -155,10 +155,6 @@
       enableZshIntegration = true;
     };
     bat.enable = true;
-    # zellij = {
-    #   enable = true;
-    #   # enableZshIntegration = true;
-    # };
     direnv = {
       enable = true;
       enableNushellIntegration = true;

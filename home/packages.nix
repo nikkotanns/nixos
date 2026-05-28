@@ -121,8 +121,16 @@
     # Postgres
     postgresql
 
+    staruml
+
     # Wine
     wineWowPackages.waylandFull
+
+    # Bottles
+    bottles
+
+    # Steam run
+    steam-run
 
     # Games
     chocolate-doom

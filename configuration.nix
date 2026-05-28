@@ -172,40 +172,6 @@
     };
   };
 
-
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-gtk
-      fcitx5-table-extra
-    ];
-  };
-
-  # Профиль Fcitx5: английский + LaTeX
-  environment.etc."xdg/fcitx5/profile".text = ''
-    [Groups/0]
-    Name=Default
-    Default Layout=us
-    DefaultIM=keyboard-us
-
-    [Groups/0/Items/0]
-    Name=keyboard-us
-    Layout=
-
-    [Groups/0/Items/1]
-    Name=latex
-    Layout=
-
-    [GroupOrder]
-    0=Default
-  '';
-
-  # Жестко биндим переключение на Ctrl + \
-  environment.etc."xdg/fcitx5/config".text = ''
-    [Hotkey]
-    TriggerKeys=Control+backslash
-  '';
-
   users.users.nikkotanns = {
     isNormalUser = true;
     description = "nikkotanns";
