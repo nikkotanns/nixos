@@ -31,8 +31,6 @@
     gh
 
     unstable.vscode
-    unstable.code-cursor
-    unstable.antigravity
 
     clang
 
@@ -42,18 +40,11 @@
     unstable.rustfmt
     unstable.rust-analyzer
 
-    # Agda
-    (agda.withPackages [ agdaPackages.standard-library agdaPackages.cubical ])
-
     # Lean 4
     unstable.elan
 
     # GAP – A System for Computational Discrete Algebra
     gap
-
-    # F*
-    fstar
-    z3
 
     # Typst
     unstable.typst
@@ -65,19 +56,6 @@
 
     # Obsidian
     unstable.obsidian
-
-    # Koka
-    koka
-
-    # Erlang and Elixir
-    erlang_28
-    unstable.beam28Packages.elixir
-
-    triton-llvm
-
-    # Futhark 
-    unstable.futhark
-    haskellPackages.futhark-server
 
     # OpenCL
     clinfo
@@ -109,14 +87,8 @@
     # BitTorrent client
     transmission_4-qt
 
-    # Camera app
-    cheese
-
     # Video player
     vlc
-
-    # Notebook
-    rnote
 
     # Postgres
     postgresql
@@ -125,9 +97,6 @@
 
     # Wine
     wineWowPackages.waylandFull
-
-    # Bottles
-    bottles
 
     # Steam run
     steam-run
@@ -144,5 +113,33 @@
     pkg-config
     xorg.libX11
     glib
+
+
+    # F*
+    # fstar
+    # z3
+
+    # Bottles
+    # bottles
+
+
+    # Camera app
+    # cheese
+
+    # Koka
+    # koka
+
+    # Erlang and Elixir
+    # erlang_28
+    # unstable.beam28Packages.elixir
+
+    # triton-llvm
+
+    # Futhark 
+    # unstable.futhark
+    # haskellPackages.futhark-server
+
+    # Agda
+    # (agda.withPackages [ agdaPackages.standard-library agdaPackages.cubical ])
   ];
 }

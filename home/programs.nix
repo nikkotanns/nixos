@@ -24,16 +24,6 @@
     uv = {
       enable = true;
     };
-    nushell = {
-      enable = true;
-      environmentVariables = {
-        config = {
-          buffer_editor = "hx";
-          show_banner = false;
-        };
-        EDITOR = "hx";
-      };
-    };
     helix = {
       enable = true;
       defaultEditor = true;
@@ -115,16 +105,6 @@
         };
       };
     };
-    aider-chat = {
-      enable = true;
-      settings = {
-        chat-language = "russian";
-        auto-commits = false;
-        dark-mode = true;
-        cache-prompts = true;
-        gitignore = true;
-      };
-    };
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -170,7 +150,6 @@
       enable = true;
       theme = "~/.config/nixos/home/themes/rofi/theme.rasi";
     };
-    # Pdf viewer
     zathura = {
       enable = true;
       options = {
@@ -185,8 +164,7 @@
     onlyoffice = {
       enable = true;
     };
-    # Image viewer
-    feh.enable = true;
+    feh.enable = true; # Image viewer
     firefox = {
       enable = true;
       profiles.nikkotanns = {
@@ -379,5 +357,16 @@
       style = (builtins.readFile ./themes/waybar/style.css);
     };
     home-manager.enable = true;
+
+    nushell = {
+      enable = false;
+      environmentVariables = {
+        config = {
+          buffer_editor = "hx";
+          show_banner = false;
+        };
+        EDITOR = "hx";
+      };
+    };
   };
 }
