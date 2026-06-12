@@ -149,7 +149,29 @@
     };
   };
 
-
+  # Win 11 VM
+  virtualisation.oci-containers.containers."win-box" = {
+    image = "dockurr/windows";
+    autoStart = false;
+    environment = {
+      VERSION = "win11";
+      RAM_SIZE = "8G";
+      CPU_CORES = "4";
+      DISK_SIZE = "64G";
+    };
+    volumes = [
+      "/var/lib/win11-data:/storage"
+      "${./autounattend.xml}:/custom.xml"
+    ];
+    extraOptions = [
+      "--device=/dev/kvm"
+      "--cap-add=NET_ADMIN"
+    ];
+    ports = [
+      "8006:8006"
+      "3389:3389"
+    ];
+  };
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
