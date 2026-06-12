@@ -63,10 +63,7 @@
   };
 
   services = {
-    v2raya = {
-      enable = true;
-      # systemd.services.v2raya.wantedBy = [ "multi-user.target" ];
-    };
+    v2raya.enable = true;
     gvfs.enable = true;
     tumbler.enable = true;
     displayManager.ly = {
@@ -135,10 +132,6 @@
   virtualisation = {
     containers.enable = true;
     oci-containers.backend = "docker";
-    podman = {
-      enable = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
     docker = {
       enable = true;
       package = unstable.docker;

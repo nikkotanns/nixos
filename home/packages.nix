@@ -43,9 +43,6 @@
     # Lean 4
     unstable.elan
 
-    # GAP – A System for Computational Discrete Algebra
-    gap
-
     # Typst
     unstable.typst
     unstable.typstyle
@@ -66,16 +63,7 @@
     nixpkgs-fmt
     inputs.nix-alien.packages.${stdenv.hostPlatform.system}.nix-alien # Nix alien
 
-    # Python
-    python313
-
     gcc
-
-    # Javascript
-    unstable.bun
-
-    # Golang
-    go
 
     # Proxy
     unstable.xray
@@ -83,25 +71,11 @@
     amneziawg-go
     amneziawg-tools
 
-    # Telegram client
-    unstable.ayugram-desktop
-
     # BitTorrent client
     transmission_4-qt
 
     # Video player
     vlc
-
-    # Postgres
-    postgresql
-
-    staruml
-
-    # Wine
-    wineWowPackages.waylandFull
-
-    # Steam run
-    steam-run
 
     # Games
     chocolate-doom
@@ -113,35 +87,7 @@
     alsa-lib
     udev
     pkg-config
-    xorg.libX11
+    libX11
     glib
-
-
-    # F*
-    # fstar
-    # z3
-
-    # Bottles
-    # bottles
-
-
-    # Camera app
-    # cheese
-
-    # Koka
-    # koka
-
-    # Erlang and Elixir
-    # erlang_28
-    # unstable.beam28Packages.elixir
-
-    # triton-llvm
-
-    # Futhark 
-    # unstable.futhark
-    # haskellPackages.futhark-server
-
-    # Agda
-    # (agda.withPackages [ agdaPackages.standard-library agdaPackages.cubical ])
   ];
 }
