@@ -12,7 +12,7 @@
     hyprshot
     wl-clipboard
 
-    neofetch
+    fastfetch
 
     coreutils
     busybox
@@ -68,6 +68,8 @@
 
     # Python
     python313
+
+    gcc
 
     # Javascript
     unstable.bun

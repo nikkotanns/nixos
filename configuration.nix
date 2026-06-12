@@ -134,6 +134,7 @@
 
   virtualisation = {
     containers.enable = true;
+    oci-containers.backend = "docker";
     podman = {
       enable = true;
       defaultNetwork.settings.dns_enabled = true;
@@ -146,8 +147,8 @@
         dns = [ "8.8.8.8" "1.1.1.1" ];
       };
     };
-    libvirtd.enable = true;
   };
+
 
   networking = {
     hostName = "nixos";
@@ -175,11 +176,11 @@
   users.users.nikkotanns = {
     isNormalUser = true;
     description = "nikkotanns";
-    extraGroups = [ "networkmanager" "wheel" "docker" "video" "render" "libvirtd" "kvm" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video" "render" ];
     packages = [ ];
   };
 
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }

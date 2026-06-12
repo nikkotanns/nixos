@@ -144,6 +144,9 @@
         global = {
           hide_env_diff = true;
         };
+        whitelist = {
+          prefix = [ "/home/nikkotanns" ];
+        };
       };
     };
     rofi = {
