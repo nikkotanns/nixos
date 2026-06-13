@@ -31,13 +31,13 @@
       };
     };
   };
-  
+
   gtk = {
     enable = true;
     cursorTheme = {
-      name = "capitaine-cursors";
-      package = pkgs.capitaine-cursors;
-      size = 24;
+      name = "phinger-cursors-dark";
+      package = pkgs.phinger-cursors;
+      size = 20;
     };
 
     theme = {

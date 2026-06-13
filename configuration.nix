@@ -3,6 +3,18 @@
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     trusted-users = [ "root" "nikkotanns" ];
+    substituters = [
+      "https://cache.nixos.org"
+      "https://cache.garnix.io"
+      "https://nix-community.cachix.org"
+      "https://cache.iog.io"
+    ];
+    trusted-substituters = [
+      "https://cache.garnix.io"
+      "https://nix-community.cachix.org"
+      "https://cache.iog.io"
+    ];
+    require-sigs = false;
   };
 
   boot = {
@@ -37,9 +49,7 @@
     zsh = {
       shellAliases = {
         rebuild-nixos = "sudo nixos-rebuild switch --flake ~/.config/nixos";
-        rebuild-nixos-upgrade = "sudo nixos-rebuild switch --flake ~/.config/nixos --upgrade";
         nixos-config = "code ~/.config/nixos/";
-        dv = ''export DIRENV_LOG_FORMAT=""; direnv exec .'';
       };
       enable = true;
     };

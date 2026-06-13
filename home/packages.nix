@@ -6,7 +6,7 @@
     rofi
     blueman
     networkmanagerapplet
-    capitaine-cursors
+    phinger-cursors
     hyprpolkitagent
     brightnessctl
     hyprshot
@@ -31,8 +31,6 @@
     gh
 
     unstable.vscode
-
-    clang
 
     # Rust
     unstable.rustc

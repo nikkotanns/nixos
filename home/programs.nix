@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }: {
+{ pkgs, unstable, config, ... }: {
   programs = {
     git = {
       enable = true;
@@ -170,9 +170,12 @@
     feh.enable = true; # Image viewer
     firefox = {
       enable = true;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
       profiles.nikkotanns = {
+        id = 0;
         isDefault = true;
         name = "nikkotanns";
+        extraConfig = "";
         settings = {
           # Disable bookmarks toolbar
           "browser.toolbars.bookmarks.visibility" = "never";
@@ -208,7 +211,7 @@
           "datareporting.policy.firstRunURL" = "";
 
           # Toolbar config
-          "browser.uiCustomization.state" = {
+          "browser.uiCustomization.state" = builtins.toJSON {
             "placements" = {
               "widget-overflow-fixed-list" = [ ];
               "unified-extensions-area" = [
@@ -266,6 +269,45 @@
           "pdfjs.enableHighlightFloatingButton" = false;
         };
         userChrome = builtins.readFile ./themes/firefox/userChrome.css;
+      };
+      policies = {
+        ExtensionSettings = {
+          # Bitwarden Password Manager
+          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          };
+
+          # Click to Remove Element
+          "click-to-remove-element@blade.sk" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/click-to-remove-element-ff/latest.xpi";
+          };
+
+          # Dark Reader
+          "addon@darkreader.org" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+          };
+
+          # Simple Translate
+          "simple-translate@sienori" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/simple-translate/latest.xpi";
+          };
+
+          # uBlock Origin
+          "uBlock0@raymondhill.net" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          };
+
+          # Into The Black Hole - True Amoled Black Theme
+          "{57016d44-6d64-463c-99a1-f3c547ce39f8}" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/into-the-black-hole/latest.xpi";
+          };
+        };
       };
     };
     chromium = {

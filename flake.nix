@@ -13,10 +13,16 @@
     };
 
     ###    NIX ALIEN   ###
-    nix-alien.url = "github:thiagokokada/nix-alien";
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs"; # Добавлено
+    };
 
     ###     STYLIX     ###
-    stylix.url = "github:danth/stylix/release-26.05";
+    stylix = {
+      url = "github:danth/stylix/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs"; # Добавлено
+    };
   };
 
   outputs = inputs @ { nixpkgs, nixos-unstable, home-manager, ... }:
