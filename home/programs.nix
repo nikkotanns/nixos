@@ -175,7 +175,19 @@
         id = 0;
         isDefault = true;
         name = "nikkotanns";
-        extraConfig = "";
+
+        # Костыль для 100% генерации профиля через Home Manager
+        extraConfig = ''
+          // Принудительная генерация профиля
+        '';
+
+        # Прячем кнопку "Настроить" на стартовой странице через CSS
+        userContent = ''
+          @-moz-document url("about:newtab"), url("about:home") {
+            .personalize-button { display: none !important; }
+          }
+        '';
+
         settings = {
           # Disable bookmarks toolbar
           "browser.toolbars.bookmarks.visibility" = "never";
@@ -202,13 +214,54 @@
           # Disable "Always offer to translate"
           "browser.translations.automaticallyPopup" = false;
 
+          # === УБИРАЕМ ПОИСК И МУСОР СО СТАРТОВОЙ СТРАНИЦЫ ===
+          "browser.newtabpage.activity-stream.showSearch" = false;
+          "browser.newtabpage.activity-stream.feeds.topsites" = false;
+          "browser.newtabpage.activity-stream.showTopSites" = false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "browser.topsites.useRemoteSetting" = false;
+
+          # === СВОЙ СПИСОК ЯРЛЫКОВ НА СТАРТОВОЙ ===
+          "browser.newtabpage.pinned" = builtins.toJSON [
+            { "url" = "https://github.com"; "label" = "GitHub"; }
+            { "url" = "https://youtube.com"; "label" = "YouTube"; }
+            { "url" = "https://nixos.org"; "label" = "NixOS"; }
+            { "url" = "https://reddit.com"; "label" = "Reddit"; }
+          ];
+
           # Disable "Ask to save passwords"
           "signon.rememberSignons" = false;
 
-          # Disable "Welcome to firefox" on first run
+          # === УБИВАЕМ СТАРТОВЫЕ ЭКРАНЫ ПРИВЕТСТВИЯ ===
           "trailhead.firstrun.didSeeAboutWelcome" = false;
           "browser.aboutwelcome.enabled" = false;
           "datareporting.policy.firstRunURL" = "";
+          "browser.startup.homepage_override.mstone" = "ignore";
+          "startup.homepage_welcome_url" = "";
+          "startup.homepage_welcome_url.additional" = "";
+          "startup.homepage_override_url" = "";
+
+          # === ПОЛНОЕ ОТКЛЮЧЕНИЕ СЛЕЖКИ И ТЕЛЕМЕТРИИ ===
+          "datareporting.policy.dataSubmissionEnabled" = false;
+          "datareporting.healthreport.uploadEnabled" = false;
+          "toolkit.telemetry.unified" = false;
+          "toolkit.telemetry.enabled" = false;
+          "toolkit.telemetry.server" = "data:,";
+          "toolkit.telemetry.archive.enabled" = false;
+          "toolkit.telemetry.newProfilePing.enabled" = false;
+          "toolkit.telemetry.shutdownPingSender.enabled" = false;
+          "toolkit.telemetry.updatePing.empty" = true;
+          "toolkit.telemetry.bhrPing.enabled" = false;
+          "toolkit.telemetry.firstShutdownPing.enabled" = false;
+          "toolkit.telemetry.coverage.opt-out" = true;
+          "toolkit.coverage.endpoint.base" = "";
+          "toolkit.coverage.opt-out" = true;
+          "app.shield.optoutstudies.enabled" = false;
+          "app.normandy.enabled" = false;
+          "app.normandy.api_url" = "";
+          "breakpad.reportURL" = "";
+          "browser.tabs.crashReporting.sendReport" = false;
+          "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
 
           # Toolbar config
           "browser.uiCustomization.state" = builtins.toJSON {
@@ -270,7 +323,20 @@
         };
         userChrome = builtins.readFile ./themes/firefox/userChrome.css;
       };
+
       policies = {
+        # Глобальное отключение телеметрии на уровне политик браузера
+        DisableTelemetry = true;
+        DisableFirefoxStudies = true;
+        DisableCrashReporter = true;
+        OverrideFirstRunPage = "";
+        OverridePostUpdatePage = "";
+
+        # Жесткая блокировка кастомизации стартовой страницы
+        FirefoxHome = {
+          Locked = true;
+        };
+
         ExtensionSettings = {
           # Bitwarden Password Manager
           "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
