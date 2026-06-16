@@ -177,14 +177,14 @@
         name = "nikkotanns";
 
         # Костыль для 100% генерации профиля через Home Manager
-        extraConfig = ''
-          // Принудительная генерация профиля
-        '';
+        extraConfig = "";
 
         # Прячем кнопку "Настроить" на стартовой странице через CSS
         userContent = ''
-          @-moz-document url("about:newtab"), url("about:home") {
-            .personalize-button { display: none !important; }
+          @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {
+            .personalizeButtonWrapper {
+              display:none !important;
+            }
           }
         '';
 
@@ -322,6 +322,7 @@
           "pdfjs.enableHighlightFloatingButton" = false;
         };
         userChrome = builtins.readFile ./themes/firefox/userChrome.css;
+
       };
 
       policies = {
