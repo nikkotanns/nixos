@@ -1,16 +1,14 @@
-{ config, unstable, pkgs, lib, ... } @ args:
+{ config, unstable, pkgs, lib, inputs, ... } @ args:
 {
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     trusted-users = [ "root" "nikkotanns" ];
     substituters = [
       "https://cache.nixos.org"
-      "https://cache.garnix.io"
       "https://nix-community.cachix.org"
       "https://cache.iog.io"
     ];
     trusted-substituters = [
-      "https://cache.garnix.io"
       "https://nix-community.cachix.org"
       "https://cache.iog.io"
     ];
@@ -18,7 +16,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages;
     kernelParams = [
       "quiet"
       "splash"
@@ -45,6 +43,7 @@
       enable = true;
       package = pkgs.amnezia-vpn;
     };
+    dconf.enable = true;
     iio-hyprland.enable = true;
     zsh = {
       shellAliases = {
@@ -62,6 +61,9 @@
       ];
     };
   };
+  environment.systemPackages = with pkgs; [
+    cacert
+  ];
 
   services = {
     v2raya.enable = true;
@@ -94,14 +96,14 @@
     sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
-      GTK_THEME = "Blackout";
+      GTK_THEME = "Sweet-Dark";
       RUST_SRC_PATH = "${unstable.rust.packages.stable.rustPlatform.rustLibSrc}";
-      XDG_DATA_DIRS = [ (pkgs.glib.getSchemaDataDirPath pkgs.gsettings-desktop-schemas) ];
     };
 
     variables = {
       RUST_SRC_PATH = "${unstable.rust.packages.stable.rustPlatform.rustLibSrc}";
-      GTK_THEME = "Blackout";
+      GTK_THEME = "Sweet-Dark";
+      SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
     };
   };
 
@@ -124,9 +126,6 @@
     };
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [
-        intel-ocl
-      ];
     };
   };
 

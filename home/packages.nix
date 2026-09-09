@@ -27,10 +27,16 @@
     ripgrep
     eza
     erdtree
+    rclone
 
     gh
 
     unstable.vscode
+
+    python314
+
+
+    R
 
     # Rust
     unstable.rustc
@@ -51,10 +57,6 @@
 
     # Obsidian
     unstable.obsidian
-
-    # OpenCL
-    clinfo
-    khronos-ocl-icd-loader
 
     # Nix language
     nil
@@ -77,9 +79,20 @@
 
     # Games
     chocolate-doom
-    inputs.self.packages.x86_64-linux.prismlauncher-appimage
 
     appimage-run
+
+    # Genealogy
+    (pkgs.symlinkJoin {
+      name = "gramps-ru";
+      paths = [ pkgs.gramps ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/gramps \
+          --set LANG ru_RU.UTF-8 \
+          --set LC_ALL ru_RU.UTF-8
+      '';
+    })
 
     # Libs
     alsa-lib

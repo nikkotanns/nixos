@@ -15,13 +15,13 @@
     ###    NIX ALIEN   ###
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
-      inputs.nixpkgs.follows = "nixpkgs"; # Добавлено
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     ###     STYLIX     ###
     stylix = {
       url = "github:danth/stylix/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs"; # Добавлено
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -32,10 +32,7 @@
       unstable = import nixos-unstable { inherit system; config.allowUnfree = true; };
     in
     {
-      packages.${system}.prismlauncher-appimage =
-        pkgs.callPackage ./pkgs/prismlauncher-appimage.nix { };
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-
         inherit system;
         specialArgs = { inherit inputs unstable; };
 

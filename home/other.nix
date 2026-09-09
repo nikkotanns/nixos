@@ -41,7 +41,8 @@
     };
 
     theme = {
-      name = "Blackout";
+      name = "Sweet-Dark";
+      package = pkgs.sweet;
     };
 
     iconTheme = {
@@ -53,15 +54,8 @@
   qt = {
     enable = true;
     platformTheme.name = "gtk";
-    style.name = "Blackout";
+    style.name = "Sweet-Dark";
   };
 
   xdg.enable = true;
-  xdg.desktopEntries.prismlauncher = {
-    name = "Prism Launcher";
-    exec = "prismlauncher-cracked";
-    terminal = false;
-    type = "Application";
-    categories = [ "Game" ];
-  };
 }
