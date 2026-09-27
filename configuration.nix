@@ -5,12 +5,6 @@
     trusted-users = [ "root" "nikkotanns" ];
     substituters = [
       "https://cache.nixos.org"
-      "https://nix-community.cachix.org"
-      "https://cache.iog.io"
-    ];
-    trusted-substituters = [
-      "https://nix-community.cachix.org"
-      "https://cache.iog.io"
     ];
     require-sigs = false;
   };
@@ -83,6 +77,7 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    hardware.bolt.enable = true;
   };
 
   imports = [

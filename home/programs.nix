@@ -221,14 +221,6 @@
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
           "browser.topsites.useRemoteSetting" = false;
 
-          # === СВОЙ СПИСОК ЯРЛЫКОВ НА СТАРТОВОЙ ===
-          "browser.newtabpage.pinned" = builtins.toJSON [
-            { "url" = "https://github.com"; "label" = "GitHub"; }
-            { "url" = "https://youtube.com"; "label" = "YouTube"; }
-            { "url" = "https://nixos.org"; "label" = "NixOS"; }
-            { "url" = "https://reddit.com"; "label" = "Reddit"; }
-          ];
-
           # Disable "Ask to save passwords"
           "signon.rememberSignons" = false;
 
