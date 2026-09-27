@@ -1,4 +1,15 @@
-{ pkgs, unstable, inputs, ... }: {
+{ pkgs, unstable, inputs, ... }:
+let
+  prismlauncher-cracked = pkgs.appimageTools.wrapType2 rec {
+    pname = "prismlauncher-cracked";
+    version = "11.0.3";
+    src = pkgs.fetchurl {
+      url = "https://github.com/Diegiwg/PrismLauncher-Cracked/releases/download/${version}/PrismLauncher-Linux-x86_64.AppImage";
+      sha256 = "sha256-dVlHFnLLs2+24hWdiUqW2aVtpWN3DcdLmC2Ekn7la+A=";
+    };
+  };
+in
+{
   home.packages = with pkgs; [
 
     # Desktop
@@ -79,6 +90,9 @@
 
     # Games
     chocolate-doom
+
+    # Minecraft
+    prismlauncher-cracked
 
     appimage-run
 
