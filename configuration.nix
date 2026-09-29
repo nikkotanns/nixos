@@ -17,6 +17,13 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+
+      "nouveau.modeset=0"
+      "module_blacklist=nouveau"
+      "nvidia-drm.modeset=1"
+      "nvidia-drm.fbdev=1"
+      
+      "usbcore.autosuspend=-1"
     ];
     consoleLogLevel = 0;
     initrd.verbose = false;
@@ -170,4 +177,49 @@
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "26.05";
+
+
+  boot.blacklistedKernelModules = [ "nouveau" "nvidiafb" ];
+
+  boot.extraModprobeConfig = ''
+    blacklist nouveau
+    options nouveau modeset=0
+  '';
+
+  # 4. Поддержка Thunderbolt и авторизация eGPU
+
+  # 5. Графика и видеодрайвер
+  hardware.graphics = {
+    enable32Bit = true;
+  };
+
+  # Укажите драйвер встроенной карты (intel/modesetting или amdgpu) вместе с nvidia
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+
+  hardware.nvidia = {
+    # Режим KMS
+    modesetting.enable = true;
+
+    # СТРОГО ОБЯЗАТЕЛЬНО ДЛЯ BLACKWELL (RTX 50xx):
+    open = true;
+
+    # Отключение глубокого сна во избежание зависаний туннеля Thunderbolt
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    nvidiaSettings = true;
+
+    # Выбор актуального пакета драйверов (ветка 570+)
+    package = config.boot.kernelPackages.nvidiaPackages.production;
+
+    # Разрешение внешней видеокарты для PRIME-вычислений/рендеринга
+    prime = {
+      allowExternalGpu = true;
+      # Если требуется PRIME offload, раскомментируйте и укажите Bus ID:
+      # offload.enable = true;
+      # offload.enableOffloadCmd = true;
+      # intelBusId = "PCI:0:2:0";   # Значение из lspci в десятичном формате
+      # nvidiaBusId = "PCI:x:0:0";  # Bus ID вашей eGPU
+    };
+  };
 }
